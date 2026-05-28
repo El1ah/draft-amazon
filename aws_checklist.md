@@ -1,9 +1,4 @@
 
-# PART 2 | PENTEST CHECKLIST
-> Core checklist. Attack-flow order: Unauthenticated → Enumeration → Exploitation → Post-Exploitation → Impact
-
----
-
 ## AWS-1 | Unauthenticated Testing
 
 ### AWS-1.1 | S3 Bucket Discovery
