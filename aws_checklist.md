@@ -410,56 +410,8 @@
 - [ ] 6.3.1 Verify Flow Logs cover ACCEPT and REJECT (or ALL)
 - [ ] 6.3.2 Verify CloudWatch alarms: root usage, IAM changes, unauthorized API calls, console login without MFA
 
----
----
 
-# PART 3 | REVIEW (NOT SURE)
-> Items below are questionable fit for a pure AWS pentest.
-> Review before including in scope. May belong to a separate web/app pentest engagement.
-
-## REVIEW-1 | Application-Level Tests (Overlap with Web App Pentest)
-- [ ] R-1.0 Test for SSRF on public-facing applications targeting IMDS
-  > NOTE: SSRF is an app vuln. Include only if the application is in scope AND hosted on EC2/ECS/Lambda where IMDS is reachable.
-- [ ] R-1.1 Test GraphQL (AppSync) for introspection and unauthenticated queries
-  > NOTE: Introspection is app-level. Relevant only if AppSync application logic is in scope.
-- [ ] R-1.2 Test API Gateway routes for injection (SQLi, command injection, IDOR)
-  > NOTE: App-level testing. Requires separate agreement or explicit scope inclusion.
-- [ ] R-1.3 Test Cognito JWT algorithm confusion (RS256 to HS256)
-  > NOTE: App-level auth attack. Include if Cognito + consuming application is in scope.
-
-## REVIEW-2 | Passive OSINT (Pre-Engagement Context Only)
-- [ ] R-2.0 Search Shodan / Censys for AWS-hosted IPs and open ports
-  > NOTE: Useful for initial context but may be out of scope for authenticated-only engagements.
-- [ ] R-2.1 Search Pastebin, StackOverflow, Gists for leaked credentials
-  > NOTE: Passive OSINT. May be a separate threat intel deliverable.
-- [ ] R-2.2 Search Wayback Machine for historical exposed endpoints or secrets
-  > NOTE: Same as above.
-- [ ] R-2.3 Enumerate AWS account ID via public error messages
-  > NOTE: Useful for scoping. Move to AWS-1 if confirmed relevant for the engagement.
-
----
----
-
-# APPENDIX A | MITRE ATT&CK for Cloud Mapping
-
-| Tactic | Technique | Checklist Reference |
-|--------|-----------|-------------------|
-| Initial Access | Valid Accounts (T1078) | AWS-1.4 |
-| Initial Access | Exploit Public-Facing Application (T1190) | AWS-1.2 |
-| Credential Access | Unsecured Credentials in Cloud Storage (T1552.005) | AWS-1.2, AWS-4.4, AWS-4.5 |
-| Credential Access | Instance Metadata API (T1552.005) | AWS-4.6.3, AWS-4.6.4 |
-| Privilege Escalation | Cloud Account Permissions (T1098.003) | AWS-3.2 |
-| Privilege Escalation | Valid Accounts: Cloud (T1078.004) | AWS-3.3 |
-| Defense Evasion | Disable Cloud Logs (T1562.008) | AWS-5.4 |
-| Lateral Movement | Use Alternate Auth Material (T1550) | AWS-5.2 |
-| Collection | Data from Cloud Storage (T1530) | AWS-5.3 |
-| Exfiltration | Transfer Data to Cloud Account (T1537) | AWS-5.3 |
-| Impact | Data Destruction (T1485) | AWS-5.5 |
-| Persistence | Create Cloud Instance (T1578.002) | AWS-5.1 |
-
----
-
-# APPENDIX B | Toolchain Reference
+# APPENDIX A | Toolchain Reference
 
 | Tool | Purpose | Phase |
 |------|---------|-------|
