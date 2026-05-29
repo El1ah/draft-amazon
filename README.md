@@ -1,17 +1,8 @@
-# AWS Commercial Pentest Methodology
-> Version 2.0
-> Scope: AWS-specific security testing — authenticated and unauthenticated
-> Structure: 2-level directory with unified methodology documents per subsection
-
 ---
 
 ## Repository Structure
 
 ```
-aws/
-├── 00_engagement_setup/
-│   └── engagement_setup.md                         # Scoping, RoE, credential provisioning
-│
 ├── 01_unauthenticated_testing/
 │   ├── AWS-1.1_s3_bucket_discovery.md              # 7 procedures
 │   ├── AWS-1.2_public_endpoint_discovery.md        # 10 procedures
@@ -68,47 +59,7 @@ aws/
 ├── 07_review/
 │   └── REVIEW_application_and_osint.md             # 8 procedures
 │
-├── appendix/
-│   ├── mitre_attack_mapping.md                     # MITRE ATT&CK for Cloud
-│   └── toolchain_reference.md                      # Tool → Phase mapping
 │
 ├── aws_checklist.md                                # Original checklist (reference)
 └── README.md                                       # This file
-```
-
-## Methodology Document Format
-
-Each methodology file follows a consistent structure:
-
-```
-Repeatability: per_asset | per_account | per_region
-Prerequisites: Required access level and permissions
-Description: Combined vulnerability category overview
-Tags: comma-separated tags
-Potential Severity: low | medium | high | critical
-
-------------------------------------------
-Procedure N — Name
-Tools: exact tool names
-Intrusiveness: passive | low | medium | high
-Description: What this procedure tests
-
-Step 1: ...
-Step 2: ...
-Flag: condition that marks a finding
-```
-
-## Usage
-
-1. Clone this repository for each new engagement
-2. Complete scoping in `00_engagement_setup/engagement_setup.md`
-3. Work through modules in order (01 → 07)
-4. Track findings within each procedure's Flag conditions
-5. Use `[DOCUMENT ONLY]` procedures for reporting without execution
-
-## Attack Flow
-
-```
-Unauthenticated (01) → Authenticated Enumeration (02) → Privilege Escalation (03)
-→ Service Exploitation (04) → Post-Exploitation (05) → Detection Gaps (06)
 ```
